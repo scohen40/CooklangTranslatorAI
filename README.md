@@ -5,9 +5,10 @@ A GPT-based agent for converting plain recipe text into Cooklang format.
 Cooklang Recipe Converter is a Node.js application that utilizes OpenAI's GPT-3 to convert plain recipe text into Cooklang format. This project aims to provide an easy-to-use interface for users to input traditional recipe instructions and receive a structured Cooklang version.
 
 ## Feature Goals
-- [ ] Converts plain recipe text to Cooklang format.
-- [ ] Utilizes GPT-3 for natural language processing.
-- [ ] Simple and user-friendly web interface.
+- [x] Converts plain recipe text to Cooklang format utilizing GPT-3 for natural language processing.
+- [ ] Simple and user-friendly web interface with back and forth text-to-cooklang conversion, implementing React.js.
+- [ ] Implements CookLang parser to display results.
+- [ ] Unit Testing to verify conversion results.
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
