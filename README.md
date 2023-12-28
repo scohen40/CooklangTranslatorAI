@@ -1,11 +1,14 @@
-# CooklangTranslatorAI
-A GPT task prosecution agent for converting plain recipe text into Cooklang format.
+# RecipeToCooklangGPTAgent
+A GPT task prosecution agent for converting plain recipe text into Cooklang markdown.
 
-## Introduction
-Cooklang Recipe Converter is a Node.js application that utilizes OpenAI's GPT-3 to convert plain recipe text into Cooklang format. This project aims to provide an easy-to-use interface for users to input traditional recipe instructions and receive a structured Cooklang version.
 
-## Feature Goals
-- [x] Converts plain recipe text to Cooklang format utilizing GPT-3 for natural language processing.
+## Feature/Project Goals
+- [x] Few-Shot prompt to convert plain recipe text into Cooklang markdown utilizing OpenAI's GPT-3 for natural language processing.
+- [ ] Complete OpenAI Agent formatting.
+- [ ] Input JSON: Format for sending request to the Agent
+- [ ] Output JSON: What to expect back from the Agent
+- [ ] /explain Route: End-point for API documentation
+- [ ] Package/Format according to OpenAI's requirements to deploy to the OpenAI plugin store.
 - [ ] Unit Testing to verify conversion results.
 
 ## Prerequisites
@@ -18,7 +21,7 @@ To set up the Cooklang Recipe Converter, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/scohen40/CooklangTranslatorAI.git
+   git clone https://github.com/scohen40/RecipeToCooklangGPTAgent.git
 
 2. Navigate to the project directory:
    ```bash
