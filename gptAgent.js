@@ -57,6 +57,7 @@ Please convert the below recipe into CookLang format as per the specifications.
 
 const recipe = "Boil 100g of spaghetti and add tomato sauce.";
 const recipe2 = "Crack 4 eggs into a bowl, whisk, and then add 200ml of milk and a pinch of salt. Cook on a low heat until scrambled.";
+// TODO: Add more test cases like the following and more less than idealy formatted recipes. 
 const recipe3 = `
 # Baked Chicken Alfredo 
 
