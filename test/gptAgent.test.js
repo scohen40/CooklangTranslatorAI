@@ -1,6 +1,3 @@
-// const chai = require('chai');
-// const expect = chai.expect;
-
 let chai;
 let expect;
 before(async function() {
