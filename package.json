@@ -4,7 +4,7 @@
   "description": "A GPT-based agent for converting plain recipe text into Cooklang format.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha './test/gptAgent.test.js'"
   },
   "keywords": [],
   "author": "",

@@ -77,3 +77,5 @@ const recipe = "Boil 100g of spaghetti and add tomato sauce.";
 const recipe2 = "Crack 4 eggs into a bowl, whisk, and then add 200ml of milk and a pinch of salt. Cook on a low heat until scrambled.";
 //"Crack @egg{4} into a #bowl{}, #whisk{}, and then add @milk{200%ml} and a pinch of @salt{}. Cook on a low heat until scrambled."
 convertToCooklang(recipe2);
+
+exports.convertToCooklang = convertToCooklang;
