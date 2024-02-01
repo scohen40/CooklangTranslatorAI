@@ -50,32 +50,64 @@ Please convert the below recipe into CookLang format as per the specifications.
   Cooklang:
   `;
   // console.log(fewShotPrompt);
-    try {
-      const response = await openai.completions.create({
-        model: "gpt-3.5-turbo-instruct", // Use the latest available model
-        prompt: fewShotPrompt,
-        temperature: 0,
-        max_tokens: 150
-      });
-  
-      if (response && response.choices) {
-        const reply = response.choices[0].text.trim();
-        console.log('----');
-        console.log("Cooklang Formatted Recipe:", reply)
-        return response.choices[0].text.trim();
-      }
-      else {
-        console.log("No choices available in the response.");
-      }
-    } catch (error) {
-      console.error("Error in calling OpenAI API:", error);
-      return null;
-    }
-  }
+  const response = await prompt(fewShotPrompt);
+    
+  return response;
+}
 
 const recipe = "Boil 100g of spaghetti and add tomato sauce.";
 const recipe2 = "Crack 4 eggs into a bowl, whisk, and then add 200ml of milk and a pinch of salt. Cook on a low heat until scrambled.";
+const recipe3 = `
+# Baked Chicken Alfredo 
+
+## [Sauce](https://therecipecritic.com/2016/02/the-best-homemade-alfredo-sauce-ever/)
+
+ - ½ cup butter
+ - 1 pint heavy whipping cream (2 cups)
+ - 4 ounces cream cheese
+ - ½ teaspoon minced garlic
+ - 1 teaspoon garlic powder
+ - 1 teaspoon italian seasoning
+ - ¼ teaspoon salt
+ - ¼ teaspoon pepper
+ - 1 cup grated parmesan cheese
+
+ - In a medium saucepan add butter, heavy whipping cream, and cream cheese. Cook over medium heat and whisk until melted.  
+ - Add the minced garlic, garlic powder, italian seasoning, salt and pepper. Continue to whisk until smooth. Add the grated parmesan cheese.
+ - Bring to a simmer and continue to cook for about 3-5 minutes or until it starts to thicken.
+
+# The bake
+
+Then mix with cooked pasta and cooked chicken (rotisserie?) with cheese on top and put in oven on 350 degrees F until cheese on top is melted.
+
+Some red pepper flakes or black pepper is nice for a bit more spice.
+`
 //"Crack @egg{4} into a #bowl{}, #whisk{}, and then add @milk{200%ml} and a pinch of @salt{}. Cook on a low heat until scrambled."
-convertToCooklang(recipe2);
+convertToCooklang(recipe3);
+
+async function prompt(fewShotPrompt, temperature=0, max_tokens=500, presence_penalty=0) {
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4", // Use the latest available model
+      messages: [{role: 'system', content: fewShotPrompt}],
+      temperature: temperature,
+      max_tokens: max_tokens,
+      presence_penalty: presence_penalty
+    });
+    console.log(response.choices[0].message.content);
+    if (response && response.choices) {
+      const reply = response.choices[0].message.content;
+      console.log('----');
+      console.log("Cooklang Formatted Recipe:", reply)
+      return reply;
+    }
+    else {
+      console.log("No choices available in the response.");
+    }
+  } catch (error) {
+    console.error("Error in calling OpenAI API:", error);
+    return null;
+  }
+}
 
 exports.convertToCooklang = convertToCooklang;
