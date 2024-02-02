@@ -1,7 +1,11 @@
-// const { Configuration, OpenAIApi } = require("openai");
+// Description: This file contains the OpenAI client configuration.
 
-// const configuration = new Configuration({
-//   apiKey: process.env.OPENAI_API_KEY, // Your OpenAI API key
-// });
-// const openai = new OpenAIApi(configuration);
+require('dotenv').config();
+
+const OpenAI = require('openai');
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+module.exports = {openai};
 

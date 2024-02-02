@@ -1,9 +1,4 @@
-require('dotenv').config();
-
-const OpenAI = require('openai');
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const openai = require('./openaiClient').openai;
 
 async function convertToCooklang(recipeText) {
   const fewShotPrompt = `Instructions:  Convert the following recipe descriptions into CookLang format according to the CookLang specifications. 
